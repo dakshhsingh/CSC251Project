@@ -7,6 +7,9 @@ public class Project_daksh_singh {
     public static void main(String[] args) throws IOException {
         
         ArrayList<Policy> policies = new ArrayList<>();
+        
+        int smokerCount = 0;
+        int nonSmokerCount = 0;
 
         File file = new File("PolicyInformation.txt");
         Scanner inputFile = new Scanner(file);
@@ -47,6 +50,15 @@ public class Project_daksh_singh {
             System.out.printf("Policyholder's Weight: %.1f pounds\n", policy.getWeight());
             System.out.printf("Policyholder's BMI: %.2f\n", policy.calculateBMI());
             System.out.printf("Policy Price: $%.2f\n", policy.calculatePrice());
+
+            if (policy.getSmokingStatus().equalsIgnoreCase("smoker")) {
+                smokerCount++;
+            } else {
+                nonSmokerCount++;
+            }
         }
+
+        System.out.println("\nThe number of policies with a smoker is: " + smokerCount);
+        System.out.println("The number of policies with a non-smoker is: " + nonSmokerCount);
     }
 }
